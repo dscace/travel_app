@@ -9,8 +9,20 @@
 			<li><%= country %></li>
 	<% end %>
 </ul>
-
-<%= image_tag 'england.jpg' %>
-<%= image_tag 'amsterdam.jpg' %>
-<%= image_tag 'sweden.jpg' %>
-<%= image_tag 'italy.jpg' %>
+	
+<table class="table table-hover">
+  <tr>
+    <% @united_states.each do |key,value| %>
+	  <th><%= key.titleize %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <% @united_states.each do |key,value| %>      
+      <% if value.kind_of?(Array) %>
+          <td><%= value.join(", ") %></td>
+      <% else %>
+         <td><%= value %></td>
+      <% end %> 
+    <% end %>
+  </tr>
+</table>
