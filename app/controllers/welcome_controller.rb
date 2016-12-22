@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
       "favorite_state" => "Arizona",
       "flag_colors" => ["Red", "White", "Blue"]
     }
+    @color = params[:color]
   end
 
   def about

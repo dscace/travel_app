@@ -1,3 +1,9 @@
+<style>
+  body {
+    color: <%= @color %>;
+  }
+</style>
+
 <h1>Welcome to my Travel Site</h1>
 <p>Stay tuned for cool travel stuff!</p>
 
@@ -9,6 +15,12 @@
 			<li><%= country %></li>
 	<% end %>
 </ul>
+
+<h3>Change the font color:</h3>
+<%= link_to "Blue", index_path(color:"blue"), class: "btn btn-primary custom" %>
+<%= link_to "Green", index_path(color:"green"), class: "btn btn-success custom" %>
+<%= link_to "Orange", index_path(color:"orange"), class: "btn btn-warning custom" %>
+<%= link_to "Red", index_path(color:"red"), class: "btn btn-danger custom" %>
 	
 <table class="table table-hover">
   <tr>
