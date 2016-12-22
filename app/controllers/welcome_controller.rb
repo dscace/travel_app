@@ -21,6 +21,7 @@ class WelcomeController < ApplicationController
   end
 
   def activities
+    @activity_pics = ['hike.jpg', 'ski.jpg', 'surf.jpg', 'run.jpg']
   end
 
 end

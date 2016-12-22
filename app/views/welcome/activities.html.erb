@@ -1,1 +1,6 @@
 <h1>Activities</h1>
+
+<% @activity_pics.shuffle.each do |pic| %>
+	<div class="col-md-3 bottom-pad"><%= image_tag pic, class: "img-responsive" %></div>
+<% end %>
+
