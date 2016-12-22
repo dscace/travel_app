@@ -1,3 +1,10 @@
+<ul class="nav nav-pills nav-justified" role="tablist">
+  <li><%= link_to "All", destinations_path %></li>
+  <% @my_countries.each do |c| %>
+    <li><%= link_to c.country, destinations_path(country: c.country) %></li>
+  <% end %>
+</ul>
+
 <% if notice != nil %>
   <p id="notice" class="alert alert-success alert-dismissable" role="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -8,8 +15,13 @@
 
 <h1>My Destination Wish List</h1>
 
+<div class="row">
+<div class="col-md-4 col-md-offset-4 text-center">
 <%= link_to 'New Destination', new_destination_path, class: "btn btn-info" %>
+</div>
+</div> 
 
+<br>
 
 
 
@@ -26,5 +38,7 @@
     </div>
   <% end %>
 </div>
+
+
 
 
