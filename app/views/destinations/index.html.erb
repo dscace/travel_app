@@ -29,7 +29,11 @@
   <% @destinations.each do |destination| %>
     <div class="col-md-4">
       <div class="well">
-        <p><%= "#{destination.city}, #{destination.country}" %></p>
+        <% if destination.avatar_file_name != nil %>
+          <%= image_tag destination.avatar.url(:medium), class: "img-responsive" %>
+        <% end %>
+        <h2><%= "#{destination.city}, #{destination.country}" %></h2>
+        <p>Population (in millions) <%= destination.population %></p>
         <p><%= destination.description %></p>
         <p><%= link_to 'Show', destination, class: "btn btn-primary" %>
         <%= link_to 'Edit', edit_destination_path(destination), class: "btn btn-warning" %>
@@ -38,7 +42,5 @@
     </div>
   <% end %>
 </div>
-
-
 
 

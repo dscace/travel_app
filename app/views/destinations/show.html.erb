@@ -5,10 +5,24 @@
   </p>
 <% end %>
 
+<% if @destination.avatar_file_name != nil %>
+<%= image_tag @destination.avatar.url(:medium), style: "padding-top: 15px" %>
+        <% end %>
 <h1><%= "#{@destination.city}, #{@destination.country}" %></h1>
+<h2>Population (in millions)<%= @destination.population %></h2>
+<h2><%= @destination.address %></h2>
+<p><%= @destination.latitude %>, <%= @destination.longitude %></p>
 
 
 <p> <%= @destination.description %> </p>
+<div id="destination-map"></div>
+<%= javascript_tag do %>
+   latitude = '<%= j @destination.latitude.to_s %>';
+   longitude = '<%= j @destination.longitude.to_s %>';
+   address = '<%= j @destination.address %>';
+   description = '<%= j @destination.description %>';
+<% end %>
+
 
 <div class="actions form-group">
 	<%= link_to 'Edit', edit_destination_path(@destination), class: "btn btn-danger" %>

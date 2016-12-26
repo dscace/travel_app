@@ -7,7 +7,7 @@ class DestinationsController < ApplicationController
     if params[:country] == nil
       @destinations = Destination.all
     else
-      @destinations = Destination.where(country: params[:country].titleize)
+      @destinations = Destination.where(country: params[:country])
     end
 
     @my_countries = Destination.select(:country).order(:country).distinct
@@ -75,6 +75,6 @@ class DestinationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def destination_params
-      params.require(:destination).permit(:city, :country, :description)
+      params.require(:destination).permit(:city, :country, :description, :population, :avatar, :latitude, :longitude, :address)
     end
 end
